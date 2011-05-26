@@ -1,0 +1,132 @@
+<html>
+  <head>
+    <title>forseti - forseti nil API documentation</title>
+    <link href="static/favicon.png" rel="icon" />
+    <link href="static/favicon.png" rel="shortcut icon" />
+    <link media="all" type="text/css" href="static/clojure.css" rel="stylesheet" />
+    <link media="all" type="text/css" href="static/wiki.css" rel="stylesheet" />
+    <link media="all" type="text/css" href="static/internal.css" rel="stylesheet" />
+    <!-- TODO: are we using these (from clojure.org)? If so, add the files -->
+    <script src="file/view/code_highlighter.js" type="text/javascript"></script>
+    <script src="file/view/clojure.js" type="text/javascript"></script>
+    <style>.menuWrapper{height: 36px;}</style>
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" href="http://www.wikispaces.com/_/2009051601/s/internal_ie.css" type="text/css" />
+    <![endif]-->
+  </head>
+<!--
+This document was auto-generated from the source by the clojure autodoc system.
+To report errors or ask questions about the overall documentation structure, formatting,
+etc., contact Tom Faulhaber (google mail name: tomfaulhaber).
+For errors in the documentation of a particular namespace, contact the author of that
+namespace.
+-->
+  <body>
+    <div id="AllContentContainer">
+      <div id="Header">
+	<a id="Logo" href="index.html"><img alt="Clojure" height="100" width="100" src="static/clojure-icon.gif" /></a>
+	<h1><a title="page header title" id="page-header" href="index.html">forseti</a></h1>
+      </div>
+      <div id="leftcolumn"><div style="text-align: center;"></div>
+<div class="menu">
+  <div class="WikiCustomNav WikiElement wiki">
+    <span class="toc-header"><span id="project-name">forseti</span> <span id="version"></span> API</span><br />
+    <ul>
+      <li><a class="wiki_link" href="index.html">Overview</a></li>
+      <li><a class="wiki_link" href="api-index.html">API Index</a></li>
+    </ul>
+    <span class="toc-header">Namespaces</span>
+    <ul id="left-sidebar-list">
+      <li><a href="forseti-api.html" class="wiki_link">forseti</a></li>
+    </ul>
+    
+    <a href="http://clojure.org" class="wiki_link">Clojure Home</a>
+  </div>
+</div>
+</div>
+      <div id="rightcolumn">
+	<div id="Content">
+	  <div class="contentBox"><div class="innerContentBox">
+              <div id="content_view" class="wiki wikiPage">
+                <div id="right-sidebar"><div id="toc">
+  <h1 class="nopad">Table of Contents</h1>
+  <div style="margin-left: 1em;" class="toc-section">
+    <a href="#toc0">Overview</a>
+    <div style="margin-left: 1em;" class="toc-entry">
+      <a href="#forseti/advice">advice</a>
+    </div><div style="margin-left: 1em;" class="toc-entry">
+      <a href="#forseti/defpointcut">defpointcut</a>
+    </div>
+    <br />
+  </div>
+</div>
+</div>
+                <div id="content-tag"><h1 id="overview">API for <span id="namespace-name">forseti</span>
+  - <span id="header-project">forseti</span> <span id="header-version"></span> (<span id="header-status"></span>)
+  </h1>
+
+<br />Usage:
+<pre>
+(ns your-namespace
+  (:require <span id="long-name">forseti</span>))
+</pre><pre>
+</pre><h2>Overview</h2>
+<pre id="namespace-docstr">Lightweight Aspect-Oriented Programming for Clojure.</pre>
+
+
+<br />
+<h2>Public Variables and Functions</h2>
+<div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="forseti/advice">advice</h2>
+  <span id="var-type">macro</span><br />
+  <pre id="var-usage">Usage: (advice pc typ adv)
+       (advice pc typ adv &amp; advices)
+</pre>
+  <pre id="var-docstr">Advices the given code to the given PointCut.
+The options for the type of advice are :before, :around and :after.
+
+Inside the code of each advice, there are certain variables that hold some information about the join point.
+:before, :after and :around have access to the *symbol* and *args* of the code they are advicing.
+:after has access to the *result*.
+:around has a "proceed" function that holds the original one being adviced.
+In the case of multimethods, there is also a *dispatch-val* variable with the dispatch value of the method implementation.</pre>
+  
+  
+  <a href="http://github.com/eduardoejp/forseti/blob/d1dc76f032c6db13febdcc82b607a95f86741427/src/forseti.clj#L75" id="var-source">Source</a>
+</div><div id="var-entry">
+  <br />
+  <hr />
+  <h2 id="forseti/defpointcut">defpointcut</h2>
+  <span id="var-type">macro</span><br />
+  <pre id="var-usage">Usage: (defpointcut pc-sym &amp; options)
+</pre>
+  <pre id="var-docstr">Defines a PointCut. The options are:
+:fns [vector of fn-symbols]
+:methods [vector of methods]
+
+If the multimethod symbol is provided, all the implementations will be adviced.
+If a [multimethod dispatch-value] pair is given, only that implementation will be adviced.</pre>
+  
+  
+  <a href="http://github.com/eduardoejp/forseti/blob/d1dc76f032c6db13febdcc82b607a95f86741427/src/forseti.clj#L10" id="var-source">Source</a>
+</div>
+
+
+</div>
+              </div>
+            </div>
+          </div>
+	</div>
+	<div id="foot">
+	  <div style="text-align: center;" id="copyright">Copyright 2011 Eduardo Julian</div>
+	</div>
+      </div>
+      <div id="DesignedBy">Logo &amp; site design by <a title="Visit Tom Hickey's website." href="http://www.tomhickey.com">Tom Hickey</a>.<br />
+      Clojure auto-documentation system by Tom Faulhaber.</div>
+    </div>
+    <!-- /AllContentContainer -->
+  </body>
+
+</html>
